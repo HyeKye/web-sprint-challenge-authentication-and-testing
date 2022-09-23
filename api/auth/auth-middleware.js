@@ -18,6 +18,7 @@ function checkBody(req, res, next) {
             message: 'username and password required'
         })
     }
+    next()
 }
 
 async function checkUsernameFree(req, res, next) {
@@ -44,7 +45,7 @@ async function checkUsernameExists(req, res, next) {
     } else {
       next({
         status: 401,
-        message: "Invalid credentials"
+        message: "invalid credentials"
       })}
   } catch (err) {
     next(err)
