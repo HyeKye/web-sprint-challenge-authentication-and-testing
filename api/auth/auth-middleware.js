@@ -14,11 +14,11 @@ function restricted(req, res, next) {
 function checkBody(req, res, next) {
     if (req.body.username && req.body.password) {
         next()
-    }
-    next({
+    } else 
+    {next({
         status: 401,
         message: 'username and password required'
-    })
+    })}
 }
 
 async function checkUsernameFree(req, res, next) {
